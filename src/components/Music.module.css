@@ -1,0 +1,25 @@
+.formBox {
+    width: 50%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 4px;
+
+}
+
+.list {
+    width: 50%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.addLabel {
+    transform: translateY(-2px);
+}

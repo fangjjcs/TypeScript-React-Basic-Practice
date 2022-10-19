@@ -1,23 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
+import MusicList from './components/MusicList';
+import MusicModel from './models/MusicModel';
+import NewMusic from './components/NewMusic';
 
 function App() {
+
+  const [items, setItems] = useState<MusicModel[]>([
+    new MusicModel('Krystal'), 
+    new MusicModel('Rom-Com Gone Wrong')
+  ]);
+
+  const onAddMusicHandler = (newMusic: string) => {
+    console.log(newMusic);
+    setItems( prev => [
+      ...prev,
+      new MusicModel(newMusic)
+    ])
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h3>Matt Maltese's music is awesome</h3>
+        <NewMusic onAddMusic={onAddMusicHandler}/>
+        <MusicList items={items}/>
       </header>
     </div>
   );
